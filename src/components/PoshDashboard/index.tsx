@@ -1,6 +1,9 @@
 "use client";
+import dynamic from "next/dynamic";
 import { useParams } from "next/navigation";
 import PosLayout from "../shared/PosLayout";
+const Category = dynamic(() => import("./Category/index"));
+const Products = dynamic(() => import("./Products/index"));
 
 const PosDashboard = () => {
   const params = useParams();
@@ -10,9 +13,9 @@ const PosDashboard = () => {
     if (pathName === "dashboard") {
       return <p>Dashboard</p>;
     } else if (pathName === "category") {
-      return <p>Dashboard</p>;
+      return <Category />;
     } else if (pathName === "products") {
-      return <p>products</p>;
+      return <Products />;
     }
   };
 
